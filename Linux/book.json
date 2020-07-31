@@ -1,0 +1,24 @@
+{
+"plugins":["expandable-chapters",
+"-lunr",
+"-search",
+"search-plus",
+"splitter",
+"-anchor-navigation-ex-toc",
+"-page-treeview",
+"tbfed-pagefooter",
+"back-to-top-button"],
+
+"pluginsConfig": {
+        "tbfed-pagefooter": {
+            "copyright":"Copyright &copy voidck.com",
+            "modify_label": "该文件修订时间：",
+            "modify_format": "YYYY-MM-DD HH:mm:ss"
+        }
+    },
+"title" : "Linux学习",
+"author" : "Voidck",
+"description" : "记录自己学习Linux的一些知识点",
+"language" : "zh-hans"
+
+}

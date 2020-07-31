@@ -1,0 +1,857 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>简单查询 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2. 复杂查询.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    查询数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="1. 简单查询.html">
+            
+                <a href="1. 简单查询.html">
+            
+                    
+                    简单查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="2. 复杂查询.html">
+            
+                <a href="2. 复杂查询.html">
+            
+                    
+                    复杂查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >简单查询</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7B80;&#x5355;&#x67E5;&#x8BE2;">&#x7B80;&#x5355;&#x67E5;&#x8BE2;</h1>
+<h4 id="1-&#x67E5;&#x8BE2;&#x8868;&#x6570;&#x636E;">1. &#x67E5;&#x8BE2;&#x8868;&#x6570;&#x636E;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x57FA;&#x672C;&#x7684;&#x8BED;&#x6CD5;&#x5143;&#x7D20;</th>
+<th>&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SELECT</td>
+<td>&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5B57;&#x6BB5;&#x7684;&#x5217;&#x8868;</td>
+</tr>
+<tr>
+<td>*</td>
+<td>&#x9009;&#x62E9;&#x6240;&#x6709;&#x7684;&#x5217;</td>
+</tr>
+<tr>
+<td>DISTINCT</td>
+<td>&#x7981;&#x6B62;&#x91CD;&#x590D;</td>
+</tr>
+<tr>
+<td>column(&#x5B57;&#x6BB5;)&#x4E28;exprssion(&#x8868;&#x8FBE;&#x5F0F;)</td>
+<td>&#x9009;&#x62E9;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x6BB5;&#x6216;&#x8868;&#x8FBE;&#x5F0F;</td>
+</tr>
+<tr>
+<td>alias(&#x522B;&#x540D;)</td>
+<td>&#x7ED9;&#x9009;&#x62E9;&#x7684;&#x5217;&#x4E0D;&#x540C;&#x7684;&#x6807;&#x9898;</td>
+</tr>
+<tr>
+<td>FROM table</td>
+<td>&#x6307;&#x5B9A;&#x5305;&#x542B;&#x7684;&#x5217;</td>
+</tr>
+</tbody>
+</table>
+<h5 id="11-&#x67E5;&#x8BE2;&#x7279;&#x5B9A;&#x7684;&#x5217;&#x6570;&#x636E;">1.1 &#x67E5;&#x8BE2;&#x7279;&#x5B9A;&#x7684;&#x5217;&#x6570;&#x636E;</h5>
+<pre><code class="lang-plsql">--&#x793A;&#x4F8B;
+SELECT view_name, text FROM user_views;
+
+--&#x5982;&#x679C;&#x8981;&#x67E5;&#x8BE2;&#x5176;&#x4ED6;&#x65B9;&#x6848;&#x7684;&#x8868;&#x6216;&#x89C6;&#x56FE;, &#x9700;&#x8981;&#x4F7F;&#x7528;&quot;&#x65B9;&#x6848;&#x540D;.&#x8868;&#x540D;&quot;&#x8FD9;&#x79CD;&#x683C;&#x5F0F;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;
+SELECT ename, empno, job, hiredate FROM scott.emp;
+</code></pre>
+<h5 id="12-&#x67E5;&#x8BE2;&#x6240;&#x6709;&#x5217;&#x6570;&#x636E;">1.2 &#x67E5;&#x8BE2;&#x6240;&#x6709;&#x5217;&#x6570;&#x636E;</h5>
+<pre><code class="lang-plsql">--&#x793A;&#x4F8B;
+SELECT * FROM emp;
+--Oracle &#x4E0D;&#x5EFA;&#x8BAE;&#x5728;&#x83B7;&#x53D6;&#x6240;&#x6709;&#x5217;&#x503C;&#x65F6;&#x4F7F;&#x7528;*&#x5173;&#x952E;&#x5B57;, &#x5EFA;&#x8BAE;&#x5217;&#x51FA;&#x6240;&#x6709;&#x7684;&#x5217;&#x540D;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;
+</code></pre>
+<h5 id="13-&#x4F7F;&#x7528;-distinct-&#x67E5;&#x8BE2;&#x552F;&#x4E00;&#x5217;&#x6570;&#x636E;">1.3 &#x4F7F;&#x7528; DISTINCT &#x67E5;&#x8BE2;&#x552F;&#x4E00;&#x5217;&#x6570;&#x636E;</h5>
+<pre><code class="lang-plsql">--&#x793A;&#x4F8B;
+SELECT DISTINCT job FROM emp;
+--DISTINCT &#x5173;&#x952E;&#x5B57;&#x4F1A;&#x5BFC;&#x81F4;&#x7D22;&#x5F15;&#x5931;&#x8D25;, &#x5728;&#x5927;&#x578B;&#x6570;&#x636E;&#x96C6;&#x67E5;&#x8BE2;&#x4E2D;&#x5E94;&#x8BE5;&#x5C3D;&#x91CF;&#x907F;&#x514D;&#x4F7F;&#x7528; DISTINCT &#x67E5;&#x8BE2;
+</code></pre>
+<h5 id="14-&#x5728;&#x67E5;&#x8BE2;&#x4E2D;&#x4F7F;&#x7528;&#x8868;&#x8FBE;&#x5F0F;">1.4 &#x5728;&#x67E5;&#x8BE2;&#x4E2D;&#x4F7F;&#x7528;&#x8868;&#x8FBE;&#x5F0F;</h5>
+<pre><code class="lang-plsql">--&#x793A;&#x4F8B;
+SELECT empno, ename, sal*(1 + 0.12) FROM emp;
+--&#x5728;&#x8FDB;&#x884C;&#x7B97;&#x672F;&#x8FD0;&#x7B97;&#x65F6;, &#x5982;&#x679C;&#x5217;&#x5305;&#x542B; NULL &#x503C;, &#x90A3;&#x4E48;&#x7ED3;&#x679C;&#x4E5F;&#x4E3A; NULL.
+</code></pre>
+<h5 id="15-&#x4F7F;&#x7528;&#x5217;&#x522B;&#x540D;">1.5 &#x4F7F;&#x7528;&#x5217;&#x522B;&#x540D;</h5>
+<pre><code class="lang-plsql">--&#x793A;&#x4F8B;
+SELECT empno a, ename b, sal*(1 + 0.12) c FROM emp;
+SELECT empno AS a, ename AS b, sal*(1 + 0.12) AS c FROM emp;
+
+--&#x5982;&#x679C;&#x5217;&#x522B;&#x540D;&#x4E2D;&#x5305;&#x542B;&#x6709;&#x7A7A;&#x683C;&#x3001;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x6216;&#x8005;&#x5927;&#x5C0F;&#x5199;&#x654F;&#x611F;&#x5B57;&#x7B26;, &#x5219;&#x8981;&#x6C42;&#x4F7F;&#x7528;&#x53CC;&#x5F15;&#x53F7;
+SELECT empno &#x5458;&#x5DE5;&#x540D;&#x79F0;, ename &quot;&#x5458;&#x5DE5;&#x540D;&#x79F0;_NAME&quot;, job AS &#x804C;&#x7EA7;, sal AS &quot;&#x85AA;&#x6C34;_sal&quot; FROM emp;
+</code></pre>
+<h5 id="16-&#x5B57;&#x7B26;&#x4E32;&#x8FDE;&#x63A5;">1.6 &#x5B57;&#x7B26;&#x4E32;&#x8FDE;&#x63A5;</h5>
+<pre><code class="lang-plsql">--&#x901A;&#x8FC7;||&#x7B26;&#x53F7;&#x8FDE;&#x63A5;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5B57;&#x6BB5;&#x7684;&#x503C;
+
+--&#x793A;&#x4F8B;
+SELECT ename || &apos;&#x7684;&#x85AA;&#x8D44;&#x4E3A;:&apos; || sal &#x5458;&#x5DE5;&#x85AA;&#x6C34; FROM emp;
+--&#x6CE8;&#x610F; &#x5458;&#x5DE5;&#x85AA;&#x6C34; &#x4E3A;&#x5217;&#x522B;&#x540D;(alias)
+</code></pre>
+<h4 id="2-&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;">2. &#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x57FA;&#x672C;&#x7684;&#x8BED;&#x6CD5;&#x5143;&#x7D20;</th>
+<th>&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WHERE</td>
+<td>&#x9650;&#x5236;&#x6EE1;&#x8DB3;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#x7684;&#x884C;</td>
+</tr>
+<tr>
+<td>condition(&#x6761;&#x4EF6;)</td>
+<td>&#x7531;&#x5217;&#x540D;&#x3001;&#x8868;&#x8FBE;&#x5F0F;&#x3001;&#x5E38;&#x6570;&#x548C;&#x6BD4;&#x8F83;&#x7B26;&#x7EC4;&#x6210;, &#x7528;&#x6765;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x7684;&#x6761;&#x4EF6;</td>
+</tr>
+</tbody>
+</table>
+<h5 id="21-&#x7B80;&#x5355;where&#x5B50;&#x53E5;">2.1 &#x7B80;&#x5355;WHERE&#x5B50;&#x53E5;</h5>
+<pre><code class="lang-plsql">--&#x793A;&#x4F8B;
+SELECT empno, ename, job, deptno
+   FROM emp
+   WHERE deptno = 20;
+--&#x4F7F;&#x7528;&#x6BD4;&#x8F83;&#x64CD;&#x4F5C;&#x7B26;
+SELECT empno, ename, job, deptno
+   FROM emp
+   WHERE sal &gt;= 3000;
+--&#x5927;&#x4E8E;(&gt;)&#x3001;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;(&gt;=)&#x3001;&#x5C0F;&#x4E8E;(&lt;)&#x3001;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;(&lt;=)&#x3001;&#x7B49;&#x4E8E;(=)&#x3001;&#x4E0D;&#x7B49;&#x4E8E;(&lt;&gt;)
+</code></pre>
+<h5 id="22-&#x65E5;&#x671F;&#x548C;&#x5B57;&#x7B26;&#x4E32;&#x6BD4;&#x8F83;">2.2 &#x65E5;&#x671F;&#x548C;&#x5B57;&#x7B26;&#x4E32;&#x6BD4;&#x8F83;</h5>
+<pre><code class="lang-plsql">--&#x5BF9;&#x4E8E;&#x6570;&#x5B57;&#x7C7B;&#x578B;, &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8F93;&#x5165;&#x6761;&#x4EF6;&#x503C;
+--&#x5BF9;&#x4E8E;&#x65E5;&#x671F;&#x548C;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;, &#x9700;&#x8981;&#x4F7F;&#x7528;&#x5355;&#x5F15;&#x53F7;&#x62EC;&#x4F4F;&#x6761;&#x4EF6;&#x503C;
+--ps: &#x5355;&#x5F15;&#x53F7;&#x4E2D;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x7684;
+
+--Oracle &#x6570;&#x636E;&#x5E93;&#x4EE5;&#x5185;&#x90E8;&#x6570;&#x5B57;&#x683C;&#x5F0F;&#x5B58;&#x50A8;&#x65E5;&#x671F;, &#x8868;&#x793A;&#x4E3A; &#x4E16;&#x7EAA;&#x3001;&#x5E74;&#x3001;&#x6708;&#x3001;&#x65E5;&#x3001;&#x5C0F;&#x65F6;&#x3001;&#x5206;&#x548C;&#x79D2;. &#x9ED8;&#x8BA4;&#x7684;&#x65E5;&#x671F;&#x663E;&#x793A;&#x662F; DD-MON-RR
+
+--&#x793A;&#x4F8B;
+SELECT empno, ename, job, sal FROM emp WHERE job = &apos;&#x804C;&#x5458;&apos;;
+
+--&#x5728;&#x67E5;&#x8BE2;&#x65E5;&#x671F;&#x7C7B;&#x578B;&#x7684;&#x6761;&#x4EF6;&#x65F6;, &#x5FC5;&#x987B;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5339;&#x914D;
+--&#x793A;&#x4F8B;, &#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684; TO_DATE &#x51FD;&#x6570;&#x8F6C;&#x6362;&#x5B57;&#x7B26;&#x4E32;&#x4E3A;&#x65E5;&#x671F;&#x503C;
+SELECT empno, ename, job, sal, hiredate 
+   FROM emp 
+   WHERE hiredate = TO_DATE(&apos;1981-12-3&apos;, &apos;YYYY-MM-DD&apos;);
+
+--&#x4F7F;&#x7528; TO_CHAR &#x51FD;&#x6570;&#x5C06;&#x65E5;&#x671F;&#x578B;&#x8F6C;&#x6362;&#x4E3A;&#x683C;&#x5F0F;&#x5316;&#x7684;&#x5B57;&#x7B26;&#x4E32;
+--&#x793A;&#x4F8B;
+SELECT empno, ename, job, sal, TO_CHAR(hiredate, &apos;YYYY-MM-DD&apos;) hiredate
+   FROM emp
+   WHERE hiredate = TO_DATE(&apos;1981-12-3&apos;, &apos;YYYY-MM-DD&apos;);
+</code></pre>
+<h5 id="23-&#x4F7F;&#x7528;&#x8303;&#x56F4;&#x64CD;&#x4F5C;&#x7B26;">2.3 &#x4F7F;&#x7528;&#x8303;&#x56F4;&#x64CD;&#x4F5C;&#x7B26;</h5>
+<table>
+<thead>
+<tr>
+<th>&#x8303;&#x56F4;&#x64CD;&#x4F5C;&#x7B26;</th>
+<th>&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BETWEEN-AND</td>
+<td>&#x8981;&#x6BD4;&#x8F83;&#x7684;&#x503C;&#x662F;&#x5426;&#x5728;&#x4E24;&#x4E2A;&#x503C;&#x4E4B;&#x95F4;</td>
+</tr>
+<tr>
+<td>IN</td>
+<td>&#x8981;&#x6BD4;&#x8F83;&#x7684;&#x503C;&#x662F;&#x5426;&#x5728;&#x4EFB;&#x610F;&#x7684;&#x503C;&#x5217;&#x8868;&#x4E2D;&#x95F4;</td>
+</tr>
+<tr>
+<td>LIKE</td>
+<td>&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x901A;&#x914D;&#x7B26;&#x6765;&#x6BD4;&#x8F83;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x6A21;&#x677F;</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-plsql">--&#x793A;&#x4F8B;, BETWEEN-AND
+SELECT empno, ename, job, mgr, hiredate, sal 
+   FROM emp
+   WHERE sal BETWEEEN 1500 AND 2000;
+--&#x76F8;&#x5F53;&#x4E8E;
+SELECT empno, ename, job, mgr, hiredate, sal
+   FROM emp
+   WHERE sal &gt;= 1500 AND sal &lt;=2000;
+
+--&#x793A;&#x4F8B;, IN
+SELECT empno, ename, job, mgr, hiredate, sal
+   FROM emp
+   WHERE job IN (&apos;&#x9500;&#x552E;&#x4EBA;&#x5458;&apos;, &apos;&#x804C;&#x5458;&apos;, &apos;&#x5206;&#x6790;&#x4EBA;&#x5458;&apos;);
+
+--ps: IN&#x6761;&#x4EF6;&#x4E2D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#x7C7B;&#x578B;, &#x5BF9;&#x4E8E;&#x5B57;&#x7B26;&#x6216;&#x65E5;&#x671F;, &#x5FC5;&#x987B;&#x5C06;&#x5176;&#x653E;&#x5728;&#x5355;&#x5F15;&#x53F7;&#x4E2D;
+
+--&#x793A;&#x4F8B;
+SELECT empno, ename, job, mgr, hiredate, sal
+   FROM emp
+   WHERE mgr IN (7998, 7839);
+--&#x76F8;&#x5F53;&#x4E8E;
+SELECT empno, ename, job, mgr, hiredate, sal
+   FROM emp
+   WHERE mgr = 7998 OR mgr = 7839;
+
+--&#x793A;&#x4F8B;, LIKE
+SELECT empno, ename, job, mgr, hiredate, sal
+   FROM emp
+   WHERE hiredate LIKE &apos;%81&apos;;
+
+SELECT empno, ename, job, mgr, hiredate, sal
+   FROM emp
+   WHERE ename LIKE &apos;__A%&apos;;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>LIKE &#x4E2D;&#x7684;&#x901A;&#x914D;&#x7B26;</th>
+<th>&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%</td>
+<td>&#x8868;&#x793A;&#x96F6;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5B57;&#x7B26;</td>
+</tr>
+<tr>
+<td>_</td>
+<td>&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;</td>
+</tr>
+</tbody>
+</table>
+<h5 id="24-&#x5224;&#x65AD;null&#x503C;">2.4 &#x5224;&#x65AD;NULL&#x503C;</h5>
+<table>
+<thead>
+<tr>
+<th>&#x5224;&#x65AD; NULL &#x503C;&#x7684;&#x8BED;&#x53E5;</th>
+<th>&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IS NULL</td>
+<td>&#x7B49;&#x4E8E;&#x7A7A;&#x503C;</td>
+</tr>
+<tr>
+<td>IS NOT NULL</td>
+<td>&#x4E0D;&#x7B49;&#x4E8E;&#x7A7A;&#x503C;</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-plsql">--&#x7A7A;&#x503C;: &#x672A;&#x6307;&#x5B9A;&#x7684;, &#x4E0D;&#x5B58;&#x5728;&#x7684;&#x503C;
+--&#x7A7A;&#x767D;&#x503C;(&#x6BD4;&#x5982;&#x4E00;&#x4E2A;&#x7A7A;&#x767D;&#x5B57;&#x7B26;&#x4E32;): &#x662F;&#x4E00;&#x4E2A;&#x5B58;&#x5728;&#x7684;, &#x53EA;&#x662F;&#x503C;&#x4E3A;&#x7A7A;&#x767D;&#x7684;&#x503C;
+--ps: &#x4E0D;&#x80FD;&#x5BF9;&#x7A7A;&#x503C;&#x4F7F;&#x7528; = &#x8FD0;&#x7B97;&#x7B26;, &#x56E0;&#x4E3A;&#x5176;&#x4E0D;&#x80FD;&#x7B49;&#x4E8E;&#x6216;&#x4E0D;&#x7B49;&#x4E8E;&#x4EFB;&#x4F55;&#x503C;.
+
+--&#x793A;&#x4F8B;, IS NULL
+SELECT empno, ename, job, mgr, hiredate
+   FROM emp
+   WHERE mgr IS NULL;
+
+--&#x793A;&#x4F8B;, IS NOT NULL
+SELECT empno, ename, job, mgr, hiredate
+   FROM emp
+   WHERE mgr IS NOT NULL;
+</code></pre>
+<h5 id="25-&#x4F7F;&#x7528;&#x903B;&#x8F91;&#x7EC4;&#x5408;">2.5 &#x4F7F;&#x7528;&#x903B;&#x8F91;&#x7EC4;&#x5408;</h5>
+<table>
+<thead>
+<tr>
+<th>&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x7B26;</th>
+<th>&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AND</td>
+<td>&#x5982;&#x679C;&#x4E24;&#x4E2A;&#x7EC4;&#x6210;&#x90E8;&#x5206;&#x7684;&#x6761;&#x4EF6;&#x90FD;&#x4E3A;&#x771F;, &#x5219;&#x8FD4;&#x56DE;True</td>
+</tr>
+<tr>
+<td>OR</td>
+<td>&#x5982;&#x679C;&#x4E24;&#x4E2A;&#x7EC4;&#x6210;&#x90E8;&#x5206;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x4E3A;&#x771F;, &#x5219;&#x8FD4;&#x56DE;True</td>
+</tr>
+<tr>
+<td>NOT</td>
+<td>&#x5982;&#x679C;&#x8DDF;&#x968F;&#x7684;&#x6761;&#x4EF6;&#x4E3A;&#x5047;, &#x5219;&#x8FD4;&#x56DE;True</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-plsql">--&#x793A;&#x4F8B;, AND
+SELECT empno, ename, job, mgr, hiredate, sal, deptno
+   FROM emp
+   WHERE deptno = 20 AND hiredate LIKE &apos;%82&apos;;
+
+--&#x793A;&#x4F8B;, OR
+SELECT empno, ename, job, mgr, hiredate, sal, deptno
+   FROM emp
+   WHERE deptno = 20 OR hiredate LIKE &apos;%82&apos;;
+
+--&#x793A;&#x4F8B;, NOT
+SELECT empno, ename, job, mgr, hiredate, sal, deptno
+   FROM emp
+   WHERE NOT (deptno = 20 AND hiredate LIKE &apos;%82&apos;);
+
+SELECT empno, ename, job, mgr, hiredate, sal, deptno
+   FROM emp
+   WHERE job NOT IN(&apos;&#x804C;&#x5458;&apos;, &apos;&#x7ECF;&#x7406;&apos;, &apos;&#x9500;&#x552E;&#x4EBA;&#x5458;&apos;);
+
+SELECT empno, ename, job, mgr, hiredate, sal, deptno
+   FROM emp
+   WHERE sal NOT BETWEEN 1000 AND 2500;
+
+SELECT empno, ename, job, mgr, hiredate, sal, deptno
+   FROM emp
+   WHER sal NOT LIKE &apos;%A%&apos;;
+</code></pre>
+<h5 id="26-&#x4F18;&#x5148;&#x89C4;&#x5219;">2.6 &#x4F18;&#x5148;&#x89C4;&#x5219;</h5>
+<p><strong>WHERE&#x5B50;&#x53E5;&#x7684;&#x8FD0;&#x7B97;&#x7B26;&#x4F18;&#x5148;&#x7EA7;</strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x8BA1;&#x7B97;&#x987A;&#x5E8F;</th>
+<th>&#x8FD0;&#x7B97;&#x7B26;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>&#x7B97;&#x672F;&#x8FD0;&#x7B97;&#x7B26;, &#x4F8B;&#x5982;+&#x3001;-&#x3001;*&#x3001;/&#x8FD0;&#x7B97;&#x7B26;</td>
+</tr>
+<tr>
+<td>2</td>
+<td>&#x8FDE;&#x63A5;&#x8FD0;&#x7B97;&#x7B26;, &#x4F8B;&#x5982;&#x4E28;&#x4E28;&#x8FD0;&#x7B97;&#x7B26;</td>
+</tr>
+<tr>
+<td>3</td>
+<td>&#x6BD4;&#x8F83;&#x8FD0;&#x7B97;&#x7B26;, &#x4F8B;&#x5982;&gt;&#x3001;&lt;&#x3001;&gt;=&#x3001;&lt;=&#x3001;&lt;&gt;&#x8FD0;&#x7B97;&#x7B26;</td>
+</tr>
+<tr>
+<td>4</td>
+<td>IS [NOT] NULL&#x3001;LIKE&#x3001;[NOT] IN</td>
+</tr>
+<tr>
+<td>5</td>
+<td>[NOT] BETWEEN</td>
+</tr>
+<tr>
+<td>6</td>
+<td>NOT &#x903B;&#x8F91;&#x6761;&#x4EF6;</td>
+</tr>
+<tr>
+<td>7</td>
+<td>AND &#x903B;&#x8F91;&#x6761;&#x4EF6;</td>
+</tr>
+<tr>
+<td>8</td>
+<td>OR &#x903B;&#x8F91;&#x6761;&#x4EF6;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-&#x6392;&#x5E8F;">3. &#x6392;&#x5E8F;</h4>
+<p>&#x5728;<code>SELECT</code>&#x5B50;&#x53E5;&#x4E2D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>ORDER BY</code>&#x5B50;&#x53E5;&#x6392;&#x5E8F;, &#x53EF;&#x4EE5;&#x4E3A;<code>ORDER BY</code>&#x5B50;&#x53E5;&#x5236;&#x5B9A;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x6216;&#x4E00;&#x4E2A;&#x5217;&#x540D;&#x4F5C;&#x4E3A;&#x6392;&#x5E8F;&#x7684;&#x6761;&#x4EF6;.</p>
+<pre><code class="lang-plsql">--ps: ORDER BY &#x5B50;&#x53E5;&#x5FC5;&#x987B;&#x662F;SELECT&#x8BED;&#x53E5;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5B50;&#x53E5;, &#x5426;&#x5219; SELECT &#x8BED;&#x53E5;&#x4F1A;&#x6267;&#x884C;&#x5931;&#x8D25;.
+--&#x6392;&#x5E8F;&#x65B9;&#x5411;: &#x9ED8;&#x8BA4;&#x4E3A; ASC, &#x8868;&#x793A;&#x6309;&#x5347;&#x5E8F;&#x6392;&#x5E8F;. &#x53EF;&#x4EE5;&#x4F7F;&#x7528; DESC &#x6307;&#x5B9A;&#x4E3A;&#x964D;&#x5E8F;&#x6392;&#x5E8F;.
+--&#x6392;&#x5E8F;&#x89C4;&#x5219;:
+----&#x65E5;&#x671F;&#x7C7B;&#x578B;: &#x8F83;&#x65E9;&#x7684;&#x65E5;&#x671F;&#x5728;&#x524D;&#x9762;&#x663E;&#x793A;
+----&#x5B57;&#x7B26;&#x7C7B;&#x578B;: &#x6309;&#x5B57;&#x6BCD;&#x987A;&#x5E8F;&#x663E;&#x793A;, &#x4F8B;&#x5982;, A&#x5728;&#x6700;&#x524D;, Z&#x5728;&#x6700;&#x540E;
+----&#x7A7A;&#x503C;: &#x5347;&#x5E8F;&#x6392;&#x5E8F;&#x65F6;&#x663E;&#x793A;&#x5728;&#x6700;&#x540E;, &#x964D;&#x5E8F;&#x6392;&#x5E8F;&#x65F6;&#x663E;&#x793A;&#x5728;&#x6700;&#x524D;&#x9762;
+
+--&#x793A;&#x4F8B;
+SELECT empno, ename, job, mgr, hiredate, sal, deptno
+   FROM emp
+   WHERE deptno = 20
+   ORDER BY empno;
+
+SELECT empno, ename, job, mgr, hiredate, sal, deptno
+   FROM emp
+   WHERE deptno = 20
+   ORDER BY ename DESC;
+
+--&#x793A;&#x4F8B;, &#x6839;&#x636E;SELECT&#x8BED;&#x53E5;&#x7684;&#x5B57;&#x6BB5;&#x5217;&#x8868;&#x7684;&#x7D22;&#x5F15;&#x987A;&#x5E8F;&#x6307;&#x5B9A;&#x6392;&#x5E8F;
+SELECT empno, ename, job, mgr, hiredate, sal, deptno
+   FROM emp
+   WHERE deptno = 20
+   ORDER BY 4 DESC;
+</code></pre>
+<h4 id="4-&#x4F7F;&#x7528;&#x51FD;&#x6570;">4. &#x4F7F;&#x7528;&#x51FD;&#x6570;</h4>
+<pre><code class="lang-plsql">--&#x793A;&#x4F8B;, &#x4F7F;&#x7528; INITCAP &#x51FD;&#x6570;&#x8F6C;&#x6362;&#x663E;&#x793A;&#x65B9;&#x5F0F;&#x4E3A;&#x9996;&#x5B57;&#x6BCD;&#x5927;&#x5C0F;
+SELECT empno, INITCAP(ename) ename, hiredate
+   FROM emp
+   WHERE deptno = 20;
+
+--&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5D4C;&#x5957;
+--&#x793A;&#x4F8B;, &#x4F7F;&#x7528; CONCAT &#x51FD;&#x6570;&#x8FDE;&#x63A5; empno &#x548C; ename &#x8FD9;&#x4E24;&#x5217;&#x7684;&#x5185;&#x5BB9;, &#x5E76;&#x4E14;&#x5BF9; ename &#x4F7F;&#x7528; INITCAP &#x51FD;&#x6570;&#x8FDB;&#x884C;&#x5927;&#x5C0F;&#x5199;&#x7684;&#x8F6C;&#x6362;
+SELECT CONCAT(empno, INITCAP(ename)) ename, hiredate
+   FROM emp
+   WHERE deptno = 20;
+
+--&#x793A;&#x4F8B;, &#x4F7F;&#x7528; ROUND &#x51FD;&#x6570;&#x8FDB;&#x884C;&#x56DB;&#x820D;&#x4E94;&#x5165;&#x5F97;&#x5230;&#x6574;&#x6570;
+SELECT empno, ename, hiredate, ROUND(comm) comm
+   FROM emp
+   WHERE deptno = 20;
+</code></pre>
+<h4 id="5-&#x7EDF;&#x8BA1;&#x51FD;&#x6570;">5. &#x7EDF;&#x8BA1;&#x51FD;&#x6570;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x5E38;&#x7528;&#x7684;&#x5206;&#x7EC4;&#x51FD;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SUM &#x51FD;&#x6570;</td>
+<td>&#x8BA1;&#x7B97;&#x7279;&#x5B9A;&#x5B57;&#x6BB5;&#x7684;&#x603B;&#x548C;</td>
+</tr>
+<tr>
+<td>AVG &#x51FD;&#x6570;</td>
+<td>&#x8BA1;&#x7B97;&#x7279;&#x5B9A;&#x5B57;&#x6BB5;&#x7684;&#x5E73;&#x5747;&#x503C;</td>
+</tr>
+<tr>
+<td>MIN &#x51FD;&#x6570;</td>
+<td>&#x67E5;&#x627E;&#x5B57;&#x6BB5;&#x4E2D;&#x7684;&#x6700;&#x5C0F;&#x503C;</td>
+</tr>
+<tr>
+<td>MAX &#x51FD;&#x6570;</td>
+<td>&#x67E5;&#x627E;&#x5B57;&#x6BB5;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x503C;</td>
+</tr>
+<tr>
+<td>COUNT &#x51FD;&#x6570;</td>
+<td>&#x8BA1;&#x7B97;&#x5B57;&#x6BB5;&#x4E2D;&#x7684;&#x503C;&#x7684;&#x6570;&#x76EE;</td>
+</tr>
+<tr>
+<td>COUNT(*) &#x51FD;&#x6570;</td>
+<td>&#x8BA1;&#x7B97;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x7684;&#x8BB0;&#x5F55;&#x6570;</td>
+</tr>
+</tbody>
+</table>
+<p>ps: &#x6240;&#x6709;&#x5206;&#x7EC4;&#x51FD;&#x6570;&#x5FFD;&#x7565;&#x7A7A;&#x503C;, &#x4E3A;&#x4E86;&#x7528;&#x4E00;&#x4E2A;&#x503C;&#x4EE3;&#x66FF;&#x7A7A;&#x503C;, &#x8BF7;&#x4F7F;&#x7528;<code>NVL</code>&#x3001;<code>NVL2</code>&#x6216;<code>COALESCE</code>&#x51FD;&#x6570;&#x66FF;&#x6362;&#x7A7A;&#x503C;&#x4E3A;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x503C;</p>
+<h5 id="51-&#x8BB0;&#x5F55;&#x7EDF;&#x8BA1;">5.1 &#x8BB0;&#x5F55;&#x7EDF;&#x8BA1;</h5>
+<pre><code class="lang-plsql">--COUNT(*) &#x8FD4;&#x56DE;&#x8868;&#x4E2D;&#x6EE1;&#x8DB3; SELECT &#x8BED;&#x53E5;&#x6807;&#x51C6;&#x7684;&#x884C;&#x6570;, &#x5305;&#x62EC;&#x91CD;&#x590D;&#x884C;&#x548C;&#x6709;&#x7A7A;&#x503C;&#x5217;&#x7684;&#x884C;.
+--COUNT(*) &#x4EC5;&#x7EDF;&#x8BA1;&#x8BB0;&#x5F55;&#x7684;&#x6761;&#x6570;, &#x81F3;&#x4E8E;&#x662F;&#x54EA;&#x4E2A;&#x5B57;&#x6BB5;&#x5E76;&#x4E0D;&#x91CD;&#x8981;.
+--COUNT() &#x8FD4;&#x56DE;&#x8BB0;&#x5F55;&#x4E2D;&#x975E;&#x7A7A;&#x4E2A;&#x6570;
+--&#x793A;&#x4F8B;, COUNT(*) &#x51FD;&#x6570;
+SELECT COUNT(*) &#x8BB0;&#x5F55;&#x6761;&#x6570; FROM emp;
+
+SELECT COUNT(*) &#x8BB0;&#x5F55;&#x6761;&#x6570;
+   FROM emp
+   WHERE deptno = 20;
+
+--&#x793A;&#x4F8B;, COUNT() &#x51FD;&#x6570;
+SELECT COUNT(comm) &#x63D0;&#x6210;&#x5458;&#x5DE5;&#x6570; FROM emp;
+--&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;, COUNT &#x4F7F;&#x7528; ALL &#x53C2;&#x6570;, &#x8868;&#x793A;&#x63D0;&#x53D6;&#x6240;&#x6709;&#x91CD;&#x590D;&#x7684;&#x8BB0;&#x5F55;&#x7684;&#x503C;
+--&#x7B49;&#x4EF7;&#x4E8E;
+SELECT COUNT(ALL comm) &#x63D0;&#x6210;&#x5458;&#x5DE5;&#x6570; FROM emp;
+
+--&#x793A;&#x4F8B;, &#x4F7F;&#x7528; DISTINCT &#x5173;&#x952E;&#x5B57;&#x83B7;&#x53D6;&#x552F;&#x4E00;&#x8BB0;&#x5F55;&#x6570;
+SELECT COUNT(DISTINCT job) &#x804C;&#x4F4D;&#x4E2A;&#x6570; FROM emp;
+</code></pre>
+<h5 id="52-&#x6C47;&#x603B;&#x548C;&#x5E73;&#x5747;&#x503C;&#x8BA1;&#x7B97;">5.2 &#x6C47;&#x603B;&#x548C;&#x5E73;&#x5747;&#x503C;&#x8BA1;&#x7B97;</h5>
+<pre><code class="lang-plsql">--SUM &#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x6C47;&#x603B;&#x5217;&#x6570;&#x91CF;
+--SUM &#x51FD;&#x6570;&#x63A5;&#x53D7;&#x6570;&#x5B57;&#x7C7B;&#x578B;&#x7684;&#x5217;
+
+--&#x793A;&#x4F8B;
+SELECT SUM(sal) &#x85AA;&#x6C34;&#x603B;&#x8BA1;, SUM(comm) &#x63D0;&#x6210;&#x603B;&#x8BA1; FROM emp;
+
+--AVG &#x51FD;&#x6570;&#x7528;&#x6765;&#x8BA1;&#x7B97;&#x96C6;&#x5408;&#x7684;&#x5E73;&#x5747;&#x503C;
+--AVG &#x51FD;&#x6570;&#x63A5;&#x53D7;&#x6570;&#x5B57;&#x7C7B;&#x578B;&#x7684;&#x5217;
+
+--&#x793A;&#x4F8B;
+SELECT AVG(sal) &#x5E73;&#x5747;&#x85AA;&#x8D44;, AVG(comm) &#x5E73;&#x5747;&#x63D0;&#x6210; FROM emp;
+</code></pre>
+<h5 id="53-&#x6700;&#x5C0F;&#x503C;&#x548C;&#x6700;&#x5927;&#x503C;">5.3 &#x6700;&#x5C0F;&#x503C;&#x548C;&#x6700;&#x5927;&#x503C;</h5>
+<pre><code class="lang-plsql">--MAX &#x51FD;&#x6570;&#x83B7;&#x53D6;&#x4EFB;&#x610F;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x6700;&#x5927;&#x503C;
+--MIN &#x51FD;&#x6570;&#x83B7;&#x53D6;&#x4EFB;&#x610F;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x6700;&#x5C0F;&#x503C;
+--MAX &#x548C; MIN &#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x4EFB;&#x610F;&#x7684;&#x7C7B;&#x578B;
+--&#x5BF9;&#x4E8E;&#x5B57;&#x7B26;&#x578B;&#x5C06;&#x6309;&#x5B57;&#x6BCD;&#x8FDB;&#x884C;&#x6392;&#x5E8F;, &#x5BF9;&#x4E8E;&#x65E5;&#x671F;&#x578B;&#x5C06;&#x6839;&#x636E;&#x65E5;&#x671F;&#x5927;&#x5C0F;&#x8FDB;&#x884C;&#x6392;&#x5E8F;, &#x5BF9;&#x4E8E;&#x6570;&#x5B57;&#x578B;&#x5C06;&#x6309;&#x5B57;&#x6BCD;&#x8FDB;&#x884C;&#x6392;&#x5E8F;
+
+--&#x793A;&#x4F8B;
+--&#x6570;&#x5B57;&#x578B;
+SELECT MIN(sal) &#x6700;&#x4F4E;&#x85AA;&#x8D44;, MAX(sal) &#x6700;&#x9AD8;&#x85AA;&#x8D44; FROM emp;
+--&#x65E5;&#x671F;
+SELECT MIN(hiredate) &#x6700;&#x65E9;&#x96C7;&#x7528;&#x65E5;&#x671F;, MAX(hiredate) &#x6700;&#x665A;&#x96C7;&#x7528;&#x65E5;&#x671F; FROM emp;
+--&#x5B57;&#x7B26;&#x4E32;
+SELECT MIN(ename), MAX(ename) FROM emp;
+</code></pre>
+<h5 id="54-&#x7EDF;&#x8BA1;&#x51FD;&#x6570;&#x7684;null&#x503C;&#x5904;&#x7406;">5.4 &#x7EDF;&#x8BA1;&#x51FD;&#x6570;&#x7684;NULL&#x503C;&#x5904;&#x7406;</h5>
+<pre><code class="lang-plsql">--&#x6240;&#x6709;&#x7684;&#x7EDF;&#x8BA1;&#x51FD;&#x6570;&#x90FD;&#x4F1A;&#x5FFD;&#x7565;&#x5217;&#x4E2D;&#x7684;&#x7A7A;&#x503C;
+--NVL &#x51FD;&#x6570;&#x5C06;&#x5217;&#x4E2D;&#x5305;&#x542B; NULL &#x503C;&#x7684;&#x5217;&#x8F6C;&#x6362;&#x6210;&#x5177;&#x4F53;&#x7684;&#x503C;.
+
+--&#x793A;&#x4F8B;
+SELECT MIN(NVL(comm, 0)) &#x6700;&#x4F4E;&#x63D0;&#x6210;, MAX(NVL(comm, 0)) &#x6700;&#x9AD8;&#x63D0;&#x6210; FROM emp;
+</code></pre>
+<h4 id="6-&#x5206;&#x7EC4;&#x7EDF;&#x8BA1;">6. &#x5206;&#x7EC4;&#x7EDF;&#x8BA1;</h4>
+<p><code>GROUP BY</code>&#x5B50;&#x53E5;, &#x914D;&#x5408;&#x7EDF;&#x8BA1;&#x51FD;&#x6570;, &#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x5206;&#x7EC4;&#x7EDF;&#x8BA1;&#x67E5;&#x8BE2;</p>
+<pre><code class="lang-plsql">--&#x793A;&#x4F8B;
+SELECT deptno, SUM(sal) &#x90E8;&#x95E8;&#x85AA;&#x8D44;&#x5C0F;&#x8BA1;
+   FROM emp
+   GROUP BY deptno;
+
+--&#x5206;&#x7EC4;&#x7ED3;&#x679C;&#x901A;&#x8FC7;&#x5206;&#x7EC4;&#x5217;&#x9690;&#x5F0F;&#x6392;&#x5E8F;
+--&#x5206;&#x7EC4;&#x7ED3;&#x679C;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; ORDER BY &#x6307;&#x5B9A;&#x4E0D;&#x540C;&#x7684;&#x6392;&#x5E8F;&#x987A;&#x5E8F;, &#x4F46;&#x53EA;&#x80FD;&#x7528;&#x5206;&#x7EC4;&#x51FD;&#x6570;&#x6216;&#x5206;&#x7EC4;&#x5217;&#x8FDB;&#x884C;&#x6392;&#x5E8F;.
+--&#x793A;&#x4F8B;
+SELECT deptno, SUM(sal) &#x90E8;&#x95E8;&#x85AA;&#x8D44;&#x5C0F;&#x8BA1;
+   FROM emp
+   GROUP BY deptno
+   ORDER BY SUM(sal);
+
+--&#x793A;&#x4F8B;, &#x5206;&#x7EC4;&#x5217;&#x4E0D;&#x5728;&#x9009;&#x62E9;&#x5217;&#x4E2D;
+SELECT SUM(sal) &#x90E8;&#x95E8;&#x85AA;&#x8D44;&#x5C0F;&#x8BA1;, AVG(sal) &#x90E8;&#x95E8;&#x85AA;&#x8D44;&#x5E73;&#x5747;&#x503C;
+   FROM emp
+   GROUP BY deptno
+   ORDER BY SUM(sal);
+
+--&#x793A;&#x4F8B;, &#x5C42;&#x6B21;&#x5206;&#x7EC4;
+--ps: &#x5C42;&#x6B21;&#x5206;&#x7EC4;&#x6309;&#x7167;&#x5728;GROUP BY&#x5B50;&#x53E5;&#x4E2D;&#x5217;&#x51FA;&#x7684;&#x5217;&#x7684;&#x987A;&#x5E8F;&#x786E;&#x5B9A;&#x7ED3;&#x679C;&#x7684;&#x9ED8;&#x8BA4;&#x6392;&#x5E8F;&#x987A;&#x5E8F;
+SELECT deptno, job, SUM(sal) &#x85AA;&#x8D44;&#x5C0F;&#x8BA1;
+   FROM emp
+   GROUP BY deptno, job;
+
+--&#x5982;&#x679C;&#x4E00;&#x4E2A;SELECT&#x8BED;&#x53E5;&#x4E2D;&#x4F7F;&#x7528;&#x4E86;&#x5355;&#x72EC;&#x7684;&#x5217;&#x548C;&#x5206;&#x7EC4;&#x51FD;&#x6570;, &#x5FC5;&#x987B;&#x8981;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;GROUP BY&#x5B50;&#x53E5;&#x6765;&#x6307;&#x5B9A;&#x8981;&#x5206;&#x7EC4;&#x7684;&#x5217;, &#x5426;&#x5219;Oracle&#x4F1A;&#x62A5;&#x9519; 
+--&#x793A;&#x4F8B;
+SELECT deptno, SUM(sal) &#x85AA;&#x8D44;&#x5C0F;&#x8BA1; FROM emp;
+</code></pre>
+<h4 id="7-having-&#x5B50;&#x53E5;">7. HAVING &#x5B50;&#x53E5;</h4>
+<pre><code class="lang-plsql">--&#x5982;&#x679C;&#x8981;&#x7EA6;&#x675F;&#x5206;&#x7EC4;&#x6240;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;, &#x53EF;&#x4EE5;&#x4F7F;&#x7528; WHERE &#x5B50;&#x53E5;
+--&#x793A;&#x4F8B;
+SELECT deptno, job, SUM(sal) &#x85AA;&#x8D44;&#x5C0F;&#x8BA1;
+   FROM emp
+   WHERE deptno IN(20, 30)
+   GROUP BY deptno, job;
+
+--&#x5982;&#x679C;&#x8981;&#x5BF9;&#x5206;&#x7EC4;&#x7684;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x8FC7;&#x6EE4;, &#x53EF;&#x4EE5;&#x4F7F;&#x7528; HAVING &#x5B50;&#x53E5;
+--&#x793A;&#x4F8B;, &#x53EA;&#x60F3;&#x663E;&#x793A;&#x5206;&#x7EC4;&#x540E;&#x85AA;&#x8D44;&#x5C0F;&#x8BA1;&#x5927;&#x4E8E;2000&#x7684;&#x5206;&#x7EC4;&#x7ED3;&#x679C;
+SELECT deptno, job, SUM(sal) &#x85AA;&#x8D44;&#x5C0F;&#x8BA1;
+   FROM emp
+   WHERE deptno IN(20, 30)
+   GROUP BY deptno, job
+   HAVING SUM(sal) &gt; 2000;
+
+--ps: HAVING &#x5B50;&#x53E5;&#x53EA;&#x80FD;&#x5E94;&#x7528;&#x5728; GROUP BY &#x5B50;&#x53E5;&#x7684;&#x540E;&#x9762;, &#x4E0D;&#x80FD;&#x4F7F;&#x7528; WHERE &#x5B50;&#x53E5;&#x6765;&#x53D6;&#x4EE3; HAVING &#x5B50;&#x53E5;, &#x5426;&#x5219;&#x4F1A;&#x4EA7;&#x751F;&#x5F02;&#x5E38;.
+</code></pre>
+<h4 id="8-&#x4F7F;&#x7528;-dual-&#x8868;">8. &#x4F7F;&#x7528; DUAL &#x8868;</h4>
+<p><code>DUAL</code>&#x8868;&#x662F;Oracle&#x7CFB;&#x7EDF;&#x4E2D;&#x5BF9;&#x6240;&#x6709;&#x7528;&#x6237;&#x53EF;&#x7528;&#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x9645;&#x5B58;&#x5728;&#x7684;&#x8868;, &#x8FD9;&#x4E2A;&#x8868;&#x4E0D;&#x80FD;&#x7528;&#x6765;&#x5B58;&#x50A8;&#x4FE1;&#x606F;, &#x5728;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x4E2D;&#x4EC5;&#x7528;&#x6765;&#x6267;&#x884C;<code>SELECT</code>&#x8BED;&#x53E5;.</p>
+<p>ps: <code>DUAL</code>&#x8868;&#x662F;&#x4E00;&#x4E2A;1&#x884C;1&#x5217;&#x7684;&#x8868;, &#x4E0D;&#x7528;&#x5411;<code>DUAL</code>&#x8868;&#x4E2D;&#x6267;&#x884C;<code>INSERT</code>&#x3001;<code>DELETE</code>&#x548C;<code>TRUNCATE</code>&#x8BED;&#x53E5;. <code>DUAL</code>&#x8868;&#x672C;&#x8EAB;&#x4E0D;&#x5177;&#x6709;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x7684;&#x610F;&#x4E49;, &#x4EC5;&#x7528;&#x6765;&#x8BA1;&#x7B97;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;.</p>
+<pre><code class="lang-plsql">--&#x67E5;&#x8BE2;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x65E5;&#x671F;&#x65F6;&#x95F4;
+SELECT SYSDATE FROM DUAL;
+
+--&#x67E5;&#x8BE2;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x65E5;&#x671F;&#x65F6;&#x95F4;, &#x5E76;&#x683C;&#x5F0F;&#x5316;&#x4E3A;&#x7279;&#x5B9A;&#x7684;&#x65E5;&#x671F;&#x663E;&#x793A;&#x683C;&#x5F0F;
+SELECT TO_CHAR(SYSDATE, &apos;yyyy-mm-dd hh24:mi:ss&apos;) FROM DUAL;
+
+--&#x67E5;&#x8BE2;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x7528;&#x6237;
+SELECT USER FROM DUAL;
+</code></pre>
+<h4 id="9-rownum-&#x4F2A;&#x5217;">9. ROWNUM &#x4F2A;&#x5217;</h4>
+<p><code>ROWNUM</code>&#x4F2A;&#x5217;&#x662F;Oracle&#x5148;&#x67E5;&#x5230;&#x7ED3;&#x679C;&#x96C6;&#x4E4B;&#x540E;&#x518D;&#x52A0;&#x4E0A;&#x53BB;&#x7684;&#x4E00;&#x4E2A;&#x4F2A;&#x5217;, &#x8FD9;&#x4E2A;&#x4F2A;&#x5217;&#x5BF9;&#x7B26;&#x5408;&#x6761;&#x4EF6;&#x7684;&#x7ED3;&#x679C;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x4ECE; 1 &#x5F00;&#x59CB;&#x7684;&#x5E8F;&#x5217;&#x53F7;.</p>
+<p><code>ROWNUM</code>&#x4E0E;<code>ROWID</code>&#x6700;&#x5927;&#x7684;&#x4E0D;&#x540C;&#x5728;&#x4E8E;, <code>ROWID</code>&#x662F;&#x7269;&#x7406;&#x5B58;&#x5728;&#x7684;, &#x800C;<code>ROWNUM</code>&#x662F;&#x52A8;&#x6001;&#x7684;.</p>
+<pre><code class="lang-plsql">--&#x793A;&#x4F8B;
+SELECT ROWNUM, empno, ename, job, mgr, hiredate
+   FROM emp
+   WHERE deptno = 20;
+
+--&#x793A;&#x4F8B;, &#x53EF;&#x4EE5;&#x5728; WHERE &#x5B50;&#x53E5;&#x4E2D;&#x4F7F;&#x7528; ROWNUM &#x4F2A;&#x5217;
+SELECT ROWNUM, empno, job, mgr, hiredate
+   FROM emp
+   WHERE ROWNUM &lt;= 10;
+
+--&#x7F16;&#x5199;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x5982;ROWNUM &gt; 10&#x7C7B;&#x4F3C;&#x7684;&#x6761;&#x4EF6;, &#x5F53;&#x751F;&#x6210;&#x7ED3;&#x679C;&#x96C6;&#x65F6;, Oracle &#x9996;&#x5148;&#x4EA7;&#x751F;1&#x6761;ROWNUM&#x4E3A;1&#x7684;&#x8BB0;&#x5F55;, &#x663E;&#x7136;&#x4E0D;&#x5339;&#x914D; ROWNUM &gt; 10 &#x8FD9;&#x4E2A;&#x6761;&#x4EF6;, &#x8BE5;&#x6761;&#x8BB0;&#x5F55;&#x88AB;&#x8FC7;&#x6EE4;&#x6389;&#x540E;, &#x540E;&#x751F;&#x6210;&#x7684; ROWNUM &#x4F9D;&#x7136;&#x4F1A;&#x4E3A; 1, &#x56E0;&#x6B64;&#x5982;&#x679C; ROWNUM &gt; 10, &#x5C06;&#x4E0D;&#x4F1A;&#x5F97;&#x5230;&#x4EFB;&#x4F55;&#x7ED3;&#x679C;.
+--&#x8981;&#x63D0;&#x53D6;&#x8BB0;&#x5F55;&#x4E2D;&#x95F4;&#x7684;&#x8BB0;&#x5F55;, &#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x5B50;&#x67E5;&#x8BE2;
+--&#x793A;&#x4F8B;, &#x83B7;&#x53D6;&#x7B2C;5&#x6761;&#x5230;&#x7B2C;10&#x6761;&#x7684;&#x5458;&#x5DE5;&#x8BB0;&#x5F55;
+SELECT recno, empno, ename, job, mgr, hiredate
+   FROM (SELECT ROWNUM recno, empno, ename, job, mgr, hiredate FROM emp)
+   WHERE recno &gt;= 5 AND recno &lt;= 10;
+</code></pre>
+<h4 id="10-rowid-&#x4F2A;&#x5217;">10. ROWID &#x4F2A;&#x5217;</h4>
+<p><code>ROWID</code>&#x662F;&#x4E00;&#x79CD;&#x6570;&#x636E;&#x7C7B;&#x578B;, &#x5B83;&#x4F7F;&#x7528;&#x57FA;&#x4E8E; 64 &#x4F4D;&#x7F16;&#x7801;&#x7684; 18 &#x4E2A;&#x5B57;&#x7B26;&#x6765;&#x552F;&#x4E00;&#x6807;&#x8BC6;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x7684;&#x7269;&#x7406;&#x4F4D;&#x7F6E;&#x7684;&#x4E00;&#x4E2A;ID, &#x6709;&#x70B9;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E3B;&#x952E;, &#x4E0D;&#x8FC7;&#x4E0E;&#x4E3B;&#x952E;&#x7684;&#x672C;&#x8D28;&#x533A;&#x522B;&#x662F;<code>ROWID</code>&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x6309;&#x7167;&#x9012;&#x589E;&#x7684;&#x987A;&#x5E8F;&#x6392;&#x5E8F;&#x7684;.</p>
+<p>ps: &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;, &#x7D22;&#x5F15;&#x4F1A;&#x6309;&#x7167;<code>ROWID</code>&#x7684;&#x987A;&#x5E8F;&#x663E;&#x793A;, &#x56E0;&#x6B64;&#x5F53;&#x5BF9;&#x4E24;&#x6761;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x7684;&#x8BB0;&#x5F55;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#x65F6;, &#x7ED3;&#x679C;&#x4F1A;&#x6309;&#x7167;<code>ROWID</code>&#x7684;&#x987A;&#x5E8F;&#x6765;&#x8FDB;&#x884C;&#x6392;&#x5E8F;.</p>
+<p><strong>ROWID&#x7EC4;&#x6210;:</strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x6570;&#x636E;&#x5BF9;&#x8C61;&#x7F16;&#x53F7;</th>
+<th>&#x6587;&#x4EF6;&#x7F16;&#x53F7;</th>
+<th>&#x5757;&#x7F16;&#x53F7;</th>
+<th>&#x884C;&#x7F16;&#x53F7;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OOOOOO</td>
+<td>FFF</td>
+<td>BBBBBB</td>
+<td>RRR</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-plsql">--ROWID &#x867D;&#x7136;&#x53EF;&#x4EE5;&#x4ECE;&#x8868;&#x4E2D;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;, &#x4F46;&#x662F;&#x5176;&#x503C;&#x5E76;&#x672A;&#x5B58;&#x50A8;&#x5728;&#x8868;&#x4E2D;, &#x56E0;&#x6B64;&#x4E0D;&#x652F;&#x6301;&#x63D2;&#x5165;&#x3001;&#x66F4;&#x65B0;&#x548C;&#x5220;&#x9664;&#x5B83;&#x4EEC;&#x7684;&#x503C;
+
+--&#x793A;&#x4F8B;, &#x901A;&#x8FC7; ROWIDTOCHAR &#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x8FDB;&#x884C;&#x663E;&#x793A;
+SELECT ROWIDTOCHAR(ROWID), x.ename, x.empno, x.job, x.hiredate
+   FROM emp x
+   WHERE ROWNUM &lt;= 5;
+
+--ROWID &#x53E6;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x5220;&#x9664;&#x5B8C;&#x5168;&#x91CD;&#x590D;&#x7684;&#x4E24;&#x6761;&#x8BB0;&#x5F55;
+--&#x793A;&#x4F8B;, &#x901A;&#x8FC7;MIN&#x6216;MAX&#x6765;&#x83B7;&#x53D6;&#x8BB0;&#x5F55;&#x4E2D;ROWID&#x8F83;&#x5927;&#x7684;&#x6216;&#x8F83;&#x5C0F;&#x7684;&#x503C;&#x6765;&#x4F5C;&#x4E3A;&#x975E;&#x91CD;&#x590D;&#x7684;&#x8BB0;&#x5F55;&#x8F93;&#x51FA;
+SELECT *
+   FROM emp_rowid
+   WHERE ROWID NOT IN( SELECT MIN (ROWID)
+                        FROM emp_rowid
+                        GROUP BY empno );
+--&#x793A;&#x4F8B;, &#x901A;&#x8FC7;&#x4F7F;&#x7528; DELETE &#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x5220;&#x9664;&#x91CD;&#x590D;&#x884C;
+DELETE FROM emp_rowid
+   WHERE ROWID NOT IN( SELECT MIN(ROWID)
+                        FROM emp_rowid
+                        GROUP BY empno );
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 查询数据库">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="2. 复杂查询.html" class="navigation navigation-next " aria-label="Next page: 复杂查询">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"简单查询","level":"1.2.1","depth":2,"next":{"title":"复杂查询","level":"1.2.2","depth":2,"path":"查询数据库/2. 复杂查询.md","ref":"./查询数据库/2. 复杂查询.md","articles":[]},"previous":{"title":"查询数据库","level":"1.2","depth":1,"path":"查询数据库/README.md","ref":"./查询数据库/README.md","articles":[{"title":"简单查询","level":"1.2.1","depth":2,"path":"查询数据库/1. 简单查询.md","ref":"./查询数据库/1. 简单查询.md","articles":[]},{"title":"复杂查询","level":"1.2.2","depth":2,"path":"查询数据库/2. 复杂查询.md","ref":"./查询数据库/2. 复杂查询.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"查询数据库/1. 简单查询.md","mtime":"2020-07-25T02:36:29.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-31T09:24:02.667Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,51 @@
+# NVL函数
+
+### 用法
+
+从两个表达式返回一个非 null 值
+
+### 语法
+
+NVL(eExpression1, eExpression2)
+
+### 参数
+
+eExpression1, eExpression2
+
+- eExpression1 和 eExpression2 可以使任意一种数据类型.
+- 如果 eExpression1 的计算结果为 null 值, 则 NVL() 返回 eExpression2.
+- 如果 eExpression1 的计算结果不是 null 值, 则返回 eExpression1.
+- 如果 eExpression1 与 eExpression2 的结果都为 null 值, 则 NVL() 返回 null 值.
+
+### 返回值类型
+
+1. 字符型
+2. 日期型
+3. 日期时间型
+4. 数值型
+5. 货币型
+6. 逻辑型
+7. null 值
+
+### 说明
+
+在不支持 null 值或 null 值无关紧要的情况下, 可以使用 NVL() 来移去计算或操作中的 null 值.
+
+注意: 两个参数的类型要匹配
+
+```plsql
+SELECT           T.D_FDATE,
+                       T.VC_ZHCODE,
+                       NVL(SUM(T.F_FZQSZ), 0) f_price_b,
+                       NVL(SUM(T.F_FZQCB), 0) f_cost_b,
+                       NVL(SUM(T.F_FGZ_ZZ), 0) f_gz_b,
+                       NVL(SUM(T.F_FYZQSZ), 0) f_price_Y,
+                       NVL(SUM(T.F_FYZQCB), 0) f_cost_Y,
+                       NVL(SUM(T.F_FYGZ_ZZ), 0) f_gz_Y,
+                       T.VC_SOURCE,
+                       SYSDATE d_updatetime
+                  FROM GZ_FUND_GZB T
+```
+
+比如这样的判断就很重要啦，因为你不知道哪一行是 is not null 的，也不知道接下来是否要对这个单元格进行运算操作，因此，不能给列填 null，就给它一个 0 ，便于查看，也便于运算。
+
